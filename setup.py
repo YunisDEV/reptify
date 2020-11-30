@@ -5,7 +5,7 @@ with open("README.md","r") as fh:
 
 setuptools.setup(
     name="reptify",
-    version="0.0.1",
+    version="0.0.2",
     author="Yunis Huseynzade",
     author_email="yunisdev.04@gmail.com",
     description="Frontend library for Python",
