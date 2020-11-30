@@ -2,6 +2,7 @@ from ..utils import prettify
 from ..library.library import generate_library_list_html
 from ..script.scripts import generate_script_list_html
 
+
 class HTMLFile:
     def __init__(self, body):
         if not isinstance(body, str):
@@ -36,7 +37,7 @@ class HTMLBase:
     </html>
     """
 
-    def __init__(self, template=None, content=None, libs=None, scripts=None, title=None):
+    def __init__(self, content=None, template=None, libs=None, scripts=None, title=None):
         if template:
             self.template = template
         if content:
@@ -52,7 +53,7 @@ class HTMLBase:
         self.libs.append(lib)
 
     def insertScript(self, script):
-        self.scripts(script)
+        self.scripts.append(script)
 
     def render(self):
         if isinstance(self.content, str):
@@ -63,5 +64,5 @@ class HTMLBase:
             content=content,
             title=self.title,
             libs=generate_library_list_html(self.libs),
-            scripts = generate_script_list_html(self.scripts)
+            scripts=generate_script_list_html(self.scripts)
         ))
